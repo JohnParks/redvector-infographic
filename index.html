@@ -49,17 +49,72 @@
                 crane: 408/1920,
                 gearLarge: 334/1920,
                 gearMedium: 241/1920,
-                gearSmall: 284/1920
+                gearSmall: 284/1920,
+                onlineSafety : 1665/1920,
+                topBlurb : 825/1920,
+                humanHeader: 1420/1920,
+                left: 497/1920,
+                right: 537/1920,
+                fiscalImpact: 1418/1920,
+                belowHeader: 1171/1920
             }
 
-            $('.dozer').css('width', ratios['dozer'] * containerWidth);
-            $('.sign').css('width', ratios['sign'] * containerWidth);
-            $('.cone').css('width', ratios['cone'] * containerWidth);
-            $('.crane').css('width', ratios['crane'] * containerWidth);
-            $('.gear-large').css('width', ratios['gearLarge'] * containerWidth);
-            $('.gear-medium').css('width', ratios['gearMedium'] * containerWidth);
-            $('.gear-small').css('width', ratios['gearSmall'] * containerWidth);
+            // consider creating a for loop to iterate over the ratios object, using its keys to target elements
+            // $('.dozer').css('width', ratios['dozer'] * containerWidth);
+            // $('.sign').css('width', ratios['sign'] * containerWidth);
+            // $('.cone').css('width', ratios['cone'] * containerWidth);
+            // $('.crane').css('width', ratios['crane'] * containerWidth);
+            // $('.gearLarge').css('width', ratios['gearLarge'] * containerWidth);
+            // $('.gearMedium').css('width', ratios['gearMedium'] * containerWidth);
+            // $('.gearSmall').css('width', ratios['gearSmall'] * containerWidth);
 
+            // let's make a function to handle all this resizing business
+            setWidth = function( className, ratio, parentWidth ) {
+                $('.'+className).css('width', ratio * parentWidth);
+            }
+            // alright, let's iterate through our "ratios" object, using its keys to target various elements
+            for ( var element in ratios ) {
+                if ( ratios.hasOwnProperty(element) ) {
+                    setWidth( element, ratios[element], containerWidth );
+                }
+            }
+            
+            // next, we'll make another object to hold text-box sizes
+            // var textRatios = {
+            //     onlineSafety : 1665/1920,
+            //     topBlurb : 825/1920,
+            //     humanHeader: 1420/1920,
+            //     left: 497/1920,
+            //     right: 537/1920,
+            //     fiscalImpact: 1418/1920,
+            //     belowHeader: 1171/1920
+            // }
+            // $('.onlineSafety').css('width', textRatios['onlineSafety'] * containerWidth);
+            // $('.topBlurb').css('width', textRatios['topBlurb'] * containerWidth);
+            // $('.humanHeader').css('width', textRatios['humanHeader'] * containerWidth);
+            // $('.left').css('width', textRatios['left'] * containerWidth);
+            // $('.right').css('width', textRatios['right'] * containerWidth);
+            // $('.fiscalImpact').css('width', textRatios['fiscalImpact'] * containerWidth);
+            // $('.belowHeader').css('width', textRatios['belowHeader'] * containerWidth);
+
+
+            // let's attempt to resize the font based on container width
+            // var fontSize = $('.online-safety').width() * 0.1;
+            // $('.online-safety h1').css('font-size', fontSize);
+
+            // function for resizing font-size based on containing div's width
+            resizeFont = function ( container, element, size ) {
+                var fontSize = $(container).width() * size;
+                $(container + " " + element).css('font-size', fontSize);
+            }
+            resizeFont( '.onlineSafety', 'h1', 0.1 );
+            resizeFont('.onlineSafety', 'p', 0.05);
+            resizeFont('.topBlurb', 'p', 0.05);
+            resizeFont('.humanCost', 'h2', 0.07);
+            resizeFont('.humanCost', '.left', 0.02);
+            resizeFont('.humanCost', '.right', 0.02);
+            resizeFont('#fiscal-impact', '.fiscalImpact', 0.07);
+            resizeFont('#fiscal-impact', '.belowHeader', 0.02);
         });
     </script>
 </head>
@@ -67,17 +122,72 @@
 <body>
     <div id="container">
         <div id="top-container" class="pane" style="background-color:rgba(0,0,0,0.5);">
+            <div class="onlineSafety">
+                <h1>Online Safety Training:</h1>
+                <p>Making the Case for Investing in Health,<br />Safety and Environment Training</p>
+            </div>
+            <div class="topBlurb">
+                <p>
+                    Thousands of American workers sustain serious<br />
+                    injuries or die on the job every year. These<br />
+                    accidents not only damage families and<br />
+                    diminish worksite morale, but also cost<br />
+                    companies millions.  Yet, many firms continue<br />
+                    to underinvest in safety training programs,<br />
+                    putting both employees and the future of the<br />
+                    organization at risk.
+                </p>
+            </div>
         </div>
         <div class="middle-container pane" id="human-cost" style="background-color:rgba(33,140,220,0.5);">
+            <div class="humanCost">
+                <h2 class="humanHeader">THE HUMAN COST</h2>
+                <p class="left">
+                    Approximately<br />
+                    <span class="countingNumbers">4,836</span><br />
+                    workers perished on<br />
+                    worksites in 2015,<br />
+                    capping off two<br />
+                    consecutive years of<br />
+                    increasing fatal injury<br />
+                    figures.
+                </p>
+                <p class="right">
+                    Roughly<br />
+                    <span class="countingNumbers">187,000</span><br />
+                    more sustained serious<br />
+                    injuries over the same span,<br />
+                    falling victim to common<br />
+                    safety oversights such as<br />
+                    lack of proper fall<br />
+                    protection or hazard<br />
+                    communication.
+                </p>
+            </div>
             <img src="assets/bulldozer.png" class="dozer" />
             <img src="assets/sign.png" class="sign" />
             <img src="assets/cone.png" class="cone" />
             <img src="assets/crane-thing.png" class="crane" />
         </div>
-        <div class="middle-container pane" id="human-impact" style="background-color:rgba(33,140,0,0.5);">
-            <img src="assets/gear-medium.png" class="gear-medium" />
-            <img src="assets/gear-large.png" class="gear-large" />
-            <img src="assets/gear-small.png" class="gear-small" />
+        <div class="middle-container pane" id="fiscal-impact" style="background-color:rgba(33,140,0,0.5);">
+            <div>
+                <h2 class="fiscalImpact">THE FISCAL IMPACT</h2>
+                <p class="belowHeader">
+                    Last year, the Occupational Safety and Health Administration and its state<br />
+                    affiliates conducted <span class="yellow">more than 75,000 inspections and distributed over<br />
+                    32,000 citations</span> for violations ranging from faulty wiring to ineffective<br />
+                    hazard signage. Each citation came with a minimum fine of $12,675.
+                </p>
+                <p class="citations">
+                    An autoparts maker in Ohio incurred the<br />
+                    largest financial penalty, receiving<br />
+                    <span class="big">57 citations</span><br />
+                    for a total of <span class="yellow">$3.42 million.</span>
+                </p>
+            </div>
+            <img src="assets/gear-medium.png" class="gearMedium" />
+            <img src="assets/gear-large.png" class="gearLarge" />
+            <img src="assets/gear-small.png" class="gearSmall" />
         </div>
         <div class="middle-container pane" id="the-solution" style="background-color:rgba(220,33,154,0.5);">
         </div>

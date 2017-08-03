@@ -22,13 +22,63 @@ html, body {
 
 #top-container {
     width: 100%;
+
+    div {
+        position: absolute;
+    }
+    .onlineSafety {
+        left: 10%;
+        top: 5%;
+    }
+    .topBlurb {
+        left: 50%;
+        top: 50%;
+
+        p {
+            line-height: 1.5;
+        }
+    }
 }
 
 .middle-container {
     width: 100%;
 
-    img {
+    img, h2, p {
         position: absolute;
+    }
+
+    .humanCost {
+
+        h2 {
+            top: 10%;
+            left: 14%;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: white;
+        }
+
+        .left {
+            top: 34%;
+            left: 3%;
+        }
+        .right {
+            top: 32%;
+            left: 71%;
+        }
+    }
+
+    .fiscalImpact {
+        top: 10%;
+        left: 14%;
+        text-align: center;
+    }
+    .belowHeader {
+        top: 25%;
+        left: 21%;
+        text-align: center;
     }
 
     .dozer {
@@ -47,15 +97,15 @@ html, body {
         top: 73%;
         left: 65%;
     }
-    .gear-large {
+    .gearLarge {
         top: 32%;
         left: 85%;
     }
-    .gear-medium {
+    .gearMedium {
         top: 57%;
         left: 93%;
     }
-    .gear-small {
+    .gearSmall {
         top: 10%;
         left: 90%;
     }

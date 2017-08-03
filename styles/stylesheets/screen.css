@@ -88,57 +88,108 @@ html, body {
 #top-container {
   width: 100%;
 }
+/* line 26, ../sass/screen.scss */
+#top-container div {
+  position: absolute;
+}
+/* line 29, ../sass/screen.scss */
+#top-container .onlineSafety {
+  left: 10%;
+  top: 5%;
+}
+/* line 33, ../sass/screen.scss */
+#top-container .topBlurb {
+  left: 50%;
+  top: 50%;
+}
+/* line 37, ../sass/screen.scss */
+#top-container .topBlurb p {
+  line-height: 1.5;
+}
 
-/* line 27, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 .middle-container {
   width: 100%;
 }
-/* line 30, ../sass/screen.scss */
-.middle-container img {
+/* line 46, ../sass/screen.scss */
+.middle-container img, .middle-container h2, .middle-container p {
   position: absolute;
 }
-/* line 34, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
+.middle-container .humanCost h2 {
+  top: 10%;
+  left: 14%;
+  text-align: center;
+}
+/* line 58, ../sass/screen.scss */
+.middle-container .humanCost p {
+  text-align: center;
+  color: white;
+}
+/* line 63, ../sass/screen.scss */
+.middle-container .humanCost .left {
+  top: 34%;
+  left: 3%;
+}
+/* line 67, ../sass/screen.scss */
+.middle-container .humanCost .right {
+  top: 32%;
+  left: 71%;
+}
+/* line 73, ../sass/screen.scss */
+.middle-container .fiscalImpact {
+  top: 10%;
+  left: 14%;
+  text-align: center;
+}
+/* line 78, ../sass/screen.scss */
+.middle-container .belowHeader {
+  top: 25%;
+  left: 21%;
+  text-align: center;
+}
+/* line 84, ../sass/screen.scss */
 .middle-container .dozer {
   top: 76%;
   left: 24%;
 }
-/* line 38, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 .middle-container .sign {
   top: 54%;
   left: 25%;
 }
-/* line 42, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .middle-container .cone {
   top: 75.7%;
   left: 8%;
 }
-/* line 46, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .middle-container .crane {
   top: 73%;
   left: 65%;
 }
-/* line 50, ../sass/screen.scss */
-.middle-container .gear-large {
+/* line 100, ../sass/screen.scss */
+.middle-container .gearLarge {
   top: 32%;
   left: 85%;
 }
-/* line 54, ../sass/screen.scss */
-.middle-container .gear-medium {
+/* line 104, ../sass/screen.scss */
+.middle-container .gearMedium {
   top: 57%;
   left: 93%;
 }
-/* line 58, ../sass/screen.scss */
-.middle-container .gear-small {
+/* line 108, ../sass/screen.scss */
+.middle-container .gearSmall {
   top: 10%;
   left: 90%;
 }
 
-/* line 64, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 #bottom-container {
   width: 100%;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 .pane {
   overflow: hidden;
   position: relative;

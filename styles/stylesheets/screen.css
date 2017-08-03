@@ -66,3 +66,32 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
+
+/* line 8, ../sass/screen.scss */
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 14, ../sass/screen.scss */
+#container {
+  max-width: 1366px;
+  width: 100%;
+  background-image: url("../../assets/blank-background.png");
+}
+
+/* line 20, ../sass/screen.scss */
+#top-container {
+  width: 100%;
+}
+
+/* line 24, ../sass/screen.scss */
+.middle-container {
+  width: 100%;
+}
+
+/* line 28, ../sass/screen.scss */
+#bottom-container {
+  width: 100%;
+}

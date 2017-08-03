@@ -4,3 +4,27 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    max-width: 1366px;
+    width: 100%;
+    background-image: url("../../assets/blank-background.png");
+}
+
+#top-container {
+    width: 100%;
+}
+
+.middle-container {
+    width: 100%;
+}
+
+#bottom-container {
+    width: 100%;
+}

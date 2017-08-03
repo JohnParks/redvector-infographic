@@ -117,13 +117,28 @@ html, body {
   top: 73%;
   left: 65%;
 }
+/* line 50, ../sass/screen.scss */
+.middle-container .gear-large {
+  top: 32%;
+  left: 85%;
+}
+/* line 54, ../sass/screen.scss */
+.middle-container .gear-medium {
+  top: 57%;
+  left: 93%;
+}
+/* line 58, ../sass/screen.scss */
+.middle-container .gear-small {
+  top: 10%;
+  left: 90%;
+}
 
-/* line 52, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 #bottom-container {
   width: 100%;
 }
 
-/* line 56, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .pane {
   overflow: hidden;
   position: relative;

@@ -76,22 +76,25 @@ html, body {
 
 /* line 14, ../sass/screen.scss */
 #container {
-  max-width: 1366px;
+  /*max-width: 1360px;*/
+  max-width: 960px;
   width: 100%;
   background-image: url("../../assets/blank-background.png");
+  background-size: 100%;
+  margin: 0 auto;
 }
 
-/* line 20, ../sass/screen.scss */
+/* line 23, ../sass/screen.scss */
 #top-container {
   width: 100%;
 }
 
-/* line 24, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 .middle-container {
   width: 100%;
 }
 
-/* line 28, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 #bottom-container {
   width: 100%;
 }

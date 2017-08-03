@@ -15,19 +15,46 @@
     <!--[if IE]>
         <link href="/styles/stylesheets/ie.css" meda="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
+
+    <script>
+        $(function() {
+            // lift main container's width, use this to scale the heights of each "pane"
+            var mainContainer = $('#container');
+            var containerWidth = mainContainer.width();
+
+            // variables to store ratios
+            var topRatio = 1223/1945;
+            var midRatio = 1292/1930;
+            var bottomRatio = 540/1945;
+
+            // calculate heights by multiplying current container width by appropriate ratios
+            var topHeight = containerWidth * topRatio;
+            var midHeight = containerWidth * midRatio;
+            var bottomHeight = containerWidth * bottomRatio;
+
+            console.log( "Top height = " + topHeight );
+            console.log( "Mid Height = "+midHeight);
+            console.log( "Bottom height ="+bottomHeight);
+
+            // finally, let's hard-code the heights of the "panes"
+            $('#top-container').css('height', topHeight);
+            $('.middle-container').css('height', midHeight);
+            $('#bottom-container').css('height', bottomHeight);
+        });
+    </script>
 </head>
 
 <body>
     <div id="container">
-        <div id="top-container">
+        <div id="top-container" style="background-color:rgba(0,0,0,0.5);">
         </div>
-        <div class="middle-container">
+        <div class="middle-container" style="background-color:rgba(33,140,220,0.5);">
         </div>
-        <div class="middle-container">
+        <div class="middle-container" style="background-color:rgba(33,140,0,0.5);">
         </div>
-        <div class="middle-container">
+        <div class="middle-container" style="background-color:rgba(220,33,154,0.5);">
         </div>
-        <div id="bottom-container">
+        <div id="bottom-container" style="background-color:rgba(33,140,220,0.5);">
         </div>
     </div>
 </body>

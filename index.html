@@ -59,15 +59,6 @@
                 belowHeader: 1171/1920
             }
 
-            // consider creating a for loop to iterate over the ratios object, using its keys to target elements
-            // $('.dozer').css('width', ratios['dozer'] * containerWidth);
-            // $('.sign').css('width', ratios['sign'] * containerWidth);
-            // $('.cone').css('width', ratios['cone'] * containerWidth);
-            // $('.crane').css('width', ratios['crane'] * containerWidth);
-            // $('.gearLarge').css('width', ratios['gearLarge'] * containerWidth);
-            // $('.gearMedium').css('width', ratios['gearMedium'] * containerWidth);
-            // $('.gearSmall').css('width', ratios['gearSmall'] * containerWidth);
-
             // let's make a function to handle all this resizing business
             setWidth = function( className, ratio, parentWidth ) {
                 $('.'+className).css('width', ratio * parentWidth);
@@ -79,29 +70,6 @@
                 }
             }
             
-            // next, we'll make another object to hold text-box sizes
-            // var textRatios = {
-            //     onlineSafety : 1665/1920,
-            //     topBlurb : 825/1920,
-            //     humanHeader: 1420/1920,
-            //     left: 497/1920,
-            //     right: 537/1920,
-            //     fiscalImpact: 1418/1920,
-            //     belowHeader: 1171/1920
-            // }
-            // $('.onlineSafety').css('width', textRatios['onlineSafety'] * containerWidth);
-            // $('.topBlurb').css('width', textRatios['topBlurb'] * containerWidth);
-            // $('.humanHeader').css('width', textRatios['humanHeader'] * containerWidth);
-            // $('.left').css('width', textRatios['left'] * containerWidth);
-            // $('.right').css('width', textRatios['right'] * containerWidth);
-            // $('.fiscalImpact').css('width', textRatios['fiscalImpact'] * containerWidth);
-            // $('.belowHeader').css('width', textRatios['belowHeader'] * containerWidth);
-
-
-            // let's attempt to resize the font based on container width
-            // var fontSize = $('.online-safety').width() * 0.1;
-            // $('.online-safety h1').css('font-size', fontSize);
-
             // function for resizing font-size based on containing div's width
             resizeFont = function ( container, element, size ) {
                 var fontSize = $(container).width() * size;

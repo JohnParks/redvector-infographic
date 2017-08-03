@@ -26,8 +26,34 @@ html, body {
 
 .middle-container {
     width: 100%;
+
+    img {
+        position: absolute;
+    }
+
+    .dozer {
+        top: 76%;
+        left: 24%;
+    }
+    .sign {
+        top: 54%;
+        left: 25%;
+    }
+    .cone {
+        top: 75.7%;
+        left: 8%;
+    }
+    .crane {
+        top: 73%;
+        left: 65%;
+    }
 }
 
 #bottom-container {
     width: 100%;
+}
+
+.pane {
+    overflow: hidden;
+    position: relative;
 }

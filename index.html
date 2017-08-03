@@ -40,21 +40,39 @@
             $('#top-container').css('height', topHeight);
             $('.middle-container').css('height', midHeight);
             $('#bottom-container').css('height', bottomHeight);
+
+            // let's create an object to contain all the asset ratios
+            var ratios = {
+                dozer : 476/1920,
+                sign : 328/1920,
+                cone: 297/1920,
+                crane: 408/1920
+            }
+
+            $('.dozer').css('width', ratios['dozer'] * containerWidth);
+            $('.sign').css('width', ratios['sign'] * containerWidth);
+            $('.cone').css('width', ratios['cone'] * containerWidth);
+            $('.crane').css('width', ratios['crane'] * containerWidth);
+
         });
     </script>
 </head>
 
 <body>
     <div id="container">
-        <div id="top-container" style="background-color:rgba(0,0,0,0.5);">
+        <div id="top-container" class="pane" style="background-color:rgba(0,0,0,0.5);">
         </div>
-        <div class="middle-container" style="background-color:rgba(33,140,220,0.5);">
+        <div class="middle-container pane human-cost" style="background-color:rgba(33,140,220,0.5);">
+            <img src="assets/bulldozer.png" class="dozer" />
+            <img src="assets/sign.png" class="sign" />
+            <img src="assets/cone.png" class="cone" />
+            <img src="assets/crane-thing.png" class="crane" />
         </div>
-        <div class="middle-container" style="background-color:rgba(33,140,0,0.5);">
+        <div class="middle-container pane" style="background-color:rgba(33,140,0,0.5);">
         </div>
-        <div class="middle-container" style="background-color:rgba(220,33,154,0.5);">
+        <div class="middle-container pane" style="background-color:rgba(220,33,154,0.5);">
         </div>
-        <div id="bottom-container" style="background-color:rgba(33,140,220,0.5);">
+        <div id="bottom-container pane" style="background-color:rgba(33,140,220,0.5);">
         </div>
     </div>
 </body>

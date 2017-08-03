@@ -93,8 +93,38 @@ html, body {
 .middle-container {
   width: 100%;
 }
+/* line 30, ../sass/screen.scss */
+.middle-container img {
+  position: absolute;
+}
+/* line 34, ../sass/screen.scss */
+.middle-container .dozer {
+  top: 76%;
+  left: 24%;
+}
+/* line 38, ../sass/screen.scss */
+.middle-container .sign {
+  top: 54%;
+  left: 25%;
+}
+/* line 42, ../sass/screen.scss */
+.middle-container .cone {
+  top: 75.7%;
+  left: 8%;
+}
+/* line 46, ../sass/screen.scss */
+.middle-container .crane {
+  top: 73%;
+  left: 65%;
+}
 
-/* line 31, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 #bottom-container {
   width: 100%;
+}
+
+/* line 56, ../sass/screen.scss */
+.pane {
+  overflow: hidden;
+  position: relative;
 }

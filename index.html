@@ -56,7 +56,11 @@
                 left: 497/1920,
                 right: 537/1920,
                 fiscalImpact: 1418/1920,
-                belowHeader: 1171/1920
+                belowHeader: 1171/1920,
+                citations: 626/1920,
+                solution: 1415/1920,
+                solutionLeft: 589/1920,
+                solutionRight: 578/1920
             }
 
             // let's make a function to handle all this resizing business
@@ -83,19 +87,23 @@
             resizeFont('.humanCost', '.right', 0.02);
             resizeFont('#fiscal-impact', '.fiscalImpact', 0.07);
             resizeFont('#fiscal-impact', '.belowHeader', 0.02);
+            resizeFont('#fiscal-impact', '.citations', 0.02);
+            resizeFont('#the-solution', '.solution', 0.07);
+            resizeFont('#the-solution', '.solutionLeft', 0.02);
+            resizeFont('#the-solution', '.solutionRight', 0.02);
         });
     </script>
 </head>
 
 <body>
     <div id="container">
-        <div id="top-container" class="pane" style="background-color:rgba(0,0,0,0.5);">
+        <div id="top-container" class="pane">
             <div class="onlineSafety">
                 <h1>Online Safety Training:</h1>
-                <p>Making the Case for Investing in Health,<br />Safety and Environment Training</p>
+                <p class="blue-header">Making the Case for Investing in Health,<br />Safety and Environment Training</p>
             </div>
             <div class="topBlurb">
-                <p>
+                <p class="blue-body">
                     Thousands of American workers sustain serious<br />
                     injuries or die on the job every year. These<br />
                     accidents not only damage families and<br />
@@ -107,9 +115,9 @@
                 </p>
             </div>
         </div>
-        <div class="middle-container pane" id="human-cost" style="background-color:rgba(33,140,220,0.5);">
+        <div class="middle-container pane" id="human-cost">
             <div class="humanCost">
-                <h2 class="humanHeader">THE HUMAN COST</h2>
+                <h2 class="humanHeader blue-header">THE HUMAN COST</h2>
                 <p class="left">
                     Approximately<br />
                     <span class="countingNumbers">4,836</span><br />
@@ -137,9 +145,9 @@
             <img src="assets/cone.png" class="cone" />
             <img src="assets/crane-thing.png" class="crane" />
         </div>
-        <div class="middle-container pane" id="fiscal-impact" style="background-color:rgba(33,140,0,0.5);">
+        <div class="middle-container pane" id="fiscal-impact">
             <div>
-                <h2 class="fiscalImpact">THE FISCAL IMPACT</h2>
+                <h2 class="fiscalImpact blue-header">THE FISCAL IMPACT</h2>
                 <p class="belowHeader">
                     Last year, the Occupational Safety and Health Administration and its state<br />
                     affiliates conducted <span class="yellow">more than 75,000 inspections and distributed over<br />
@@ -157,9 +165,29 @@
             <img src="assets/gear-large.png" class="gearLarge" />
             <img src="assets/gear-small.png" class="gearSmall" />
         </div>
-        <div class="middle-container pane" id="the-solution" style="background-color:rgba(220,33,154,0.5);">
+        <div class="middle-container pane" id="the-solution">
+            <div>
+                <h2 class="solution blue-header">THE SOLUTION</h2>
+                <p class="solutionLeft blue-body">
+                    Organizations can avoid paying<br />
+                    steep penalties by implementing<br />
+                    online safety training programs.<br />
+                    These solutions are easy to deploy<br />
+                    and net considerable return on<br />
+                    investment.
+                </p>
+                <p class="solutionRight">
+                    For example, an enterprise that earns<br />
+                    $2 million in annual revenue and<br />
+                    invests in 160 hours of web-based<br />
+                    safety training per month stands to<br />
+                    save more than<br />
+                    <span class="big">$1 million</span><br />
+                    over the first three years of use.
+                </p>
+            </div>
         </div>
-        <div id="bottom-container" class="pane" style="background-color:rgba(33,140,220,0.5);">
+        <div id="bottom-container" class="pane">
         </div>
     </div>
 </body>

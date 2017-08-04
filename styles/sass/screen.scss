@@ -20,6 +20,17 @@ html, body {
     margin: 0 auto;
 }
 
+.blue-header {
+    color: #1b4d7f;;
+}
+.blue-body {
+    color: #36638c;
+}
+.yellow {
+    color: #f7ca4f;
+    font-weight: bold;
+}
+
 #top-container {
     width: 100%;
 
@@ -29,6 +40,10 @@ html, body {
     .onlineSafety {
         left: 10%;
         top: 5%;
+
+        h1 {
+            color: #b22126;
+        }
     }
     .topBlurb {
         left: 50%;
@@ -79,6 +94,30 @@ html, body {
         top: 25%;
         left: 21%;
         text-align: center;
+        color: white;
+    }
+    .citations {
+        top: 77%;
+        left: 8%;
+        text-align: center;
+        color: white;
+    }
+
+    .solution {
+        text-align: center;
+        top: 9%;
+        left: 14%;
+    }
+    .solutionLeft {
+        text-align: center;
+        top: 38%;
+        left: 20%;
+    }
+    .solutionRight {
+        text-align: center;
+        top: 65%;
+        left: 60%;
+        color: white;
     }
 
     .dozer {

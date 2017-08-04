@@ -17,8 +17,11 @@
     <![endif]-->
 
     <script>
+        // let's get the ScrollMagic stuff underway
+        var controller = new ScrollMagic.Controller();
+
         $(function() {
-            // lift main container's width, use this to scale the heights of each "pane"
+            // lift main container's width, use this to scale EVERYTHING
             var mainContainer = $('#container');
             var containerWidth = mainContainer.width();
 
@@ -79,18 +82,21 @@
                 var fontSize = $(container).width() * size;
                 $(container + " " + element).css('font-size', fontSize);
             }
-            resizeFont( '.onlineSafety', 'h1', 0.1 );
+            resizeFont( '.onlineSafety', 'h1', 0.09 );
             resizeFont('.onlineSafety', 'p', 0.05);
-            resizeFont('.topBlurb', 'p', 0.05);
+            resizeFont('.topBlurb', 'p', 0.045);
             resizeFont('.humanCost', 'h2', 0.07);
             resizeFont('.humanCost', '.left', 0.02);
             resizeFont('.humanCost', '.right', 0.02);
+            resizeFont('.humanCost', '.countingNumbers', 0.06);
             resizeFont('#fiscal-impact', '.fiscalImpact', 0.07);
-            resizeFont('#fiscal-impact', '.belowHeader', 0.02);
-            resizeFont('#fiscal-impact', '.citations', 0.02);
+            resizeFont('#fiscal-impact', '.belowHeader', 0.018);
+            resizeFont('#fiscal-impact', '.citations', 0.017);
+            resizeFont('#fiscal-impact', '.big', 0.058);
             resizeFont('#the-solution', '.solution', 0.07);
-            resizeFont('#the-solution', '.solutionLeft', 0.02);
-            resizeFont('#the-solution', '.solutionRight', 0.02);
+            resizeFont('#the-solution', '.solutionLeft', 0.019);
+            resizeFont('#the-solution', '.solutionRight', 0.017);
+            resizeFont('#the-solution', '.big', 0.058);
         });
     </script>
 </head>
@@ -120,7 +126,7 @@
                 <h2 class="humanHeader blue-header">THE HUMAN COST</h2>
                 <p class="left">
                     Approximately<br />
-                    <span class="countingNumbers">4,836</span><br />
+                    <span class="countingNumbers">4,836</span>
                     workers perished on<br />
                     worksites in 2015,<br />
                     capping off two<br />
@@ -130,7 +136,7 @@
                 </p>
                 <p class="right">
                     Roughly<br />
-                    <span class="countingNumbers">187,000</span><br />
+                    <span class="countingNumbers">187,000</span>
                     more sustained serious<br />
                     injuries over the same span,<br />
                     falling victim to common<br />
@@ -144,6 +150,27 @@
             <img src="assets/sign.png" class="sign" />
             <img src="assets/cone.png" class="cone" />
             <img src="assets/crane-thing.png" class="crane" />
+            <script>
+                // grab current infographic width, for scaling of duration and offsets
+                var containerWidth =  $('#container').width();
+                // build out a scene to animate the bulldozer
+                var dozerScene = new ScrollMagic.Scene({
+                    triggerElement: "#human-cost",
+                    duration: 800/1920*containerWidth,
+                    offset: 300/1920*containerWidth
+                })
+                    .setTween("#human-cost .dozer", {left: "24%"})
+                    .addTo(controller);
+                
+
+                var craneScene = new ScrollMagic.Scene({
+                    triggerElement: "#human-cost",
+                    duration: 1200/1920*containerWidth,
+                    offset: 225/1920*containerWidth
+                })
+                    .setTween("#human-cost .crane", {left: "65%"})
+                    .addTo(controller);
+            </script>
         </div>
         <div class="middle-container pane" id="fiscal-impact">
             <div>
@@ -157,13 +184,45 @@
                 <p class="citations">
                     An autoparts maker in Ohio incurred the<br />
                     largest financial penalty, receiving<br />
-                    <span class="big">57 citations</span><br />
+                    <span class="big">57 citations</span>
                     for a total of <span class="yellow">$3.42 million.</span>
                 </p>
             </div>
             <img src="assets/gear-medium.png" class="gearMedium" />
             <img src="assets/gear-large.png" class="gearLarge" />
             <img src="assets/gear-small.png" class="gearSmall" />
+            <script>
+                // grab current infographic width, for scaling of duration and offsets
+                var containerWidth =  $('#container').width();
+
+                var smallGearScene = new ScrollMagic.Scene({
+                    triggerElement: "#fiscal-impact",
+                    duration: 3000/1920*containerWidth,
+                    offset: -500/1920*containerWidth
+                })
+                    .setTween("#fiscal-impact .gearMedium", { rotation: 750 })
+                    .addTo(controller);
+                function eventCallback (event) {
+                    console.log("Event fired! (" + event.type + ")");
+                }
+                smallGearScene.on("progress", eventCallback);
+                
+                var largeGearScene = new ScrollMagic.Scene({
+                    triggerElement: "#fiscal-impact",
+                    duration: 3050/1920*containerWidth,
+                    offset: -500/1920*containerWidth
+                })
+                    .setTween("#fiscal-impact .gearLarge", { rotation: -440 })
+                    .addTo(controller);
+                
+                var smallGearScene = new ScrollMagic.Scene({
+                    triggerElement: "#fiscal-impact",
+                    duration: 3000/1920*containerWidth,
+                    offset: -500/1920*containerWidth
+                })
+                    .setTween("#fiscal-impact .gearSmall", { rotation: 550 })
+                    .addTo(controller);
+            </script>
         </div>
         <div class="middle-container pane" id="the-solution">
             <div>
@@ -182,7 +241,7 @@
                     invests in 160 hours of web-based<br />
                     safety training per month stands to<br />
                     save more than<br />
-                    <span class="big">$1 million</span><br />
+                    <span class="big">$1 million</span>
                     over the first three years of use.
                 </p>
             </div>

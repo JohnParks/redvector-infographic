@@ -67,176 +67,219 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../sass/screen.scss */
+@font-face {
+  font-family: museo;
+  src: url("../../assets/fonts/museo.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: museo;
+  src: url("../../assets/fonts/museo-300.otf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: museo;
+  src: url("../../assets/fonts/museo-500.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: museo;
+  src: url("../../assets/fonts/museo-700.otf");
+  font-weight: 700;
+}
+/* line 29, ../sass/screen.scss */
 html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+  font-family: museo;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss */
 #container {
   /*max-width: 1360px;*/
-  max-width: 960px;
-  width: 100%;
+  width: 960px;
   background-image: url("../../assets/blank-background.png");
   background-size: 100%;
   margin: 0 auto;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 .blue-header {
   color: #1b4d7f;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 .blue-body {
   color: #36638c;
 }
 
-/* line 29, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 .yellow {
   color: #f7ca4f;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 #top-container {
   width: 100%;
 }
-/* line 37, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 #top-container div {
   position: absolute;
 }
-/* line 40, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 #top-container .onlineSafety {
   left: 10%;
   top: 5%;
 }
-/* line 44, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
 #top-container .onlineSafety h1 {
   color: #b22126;
+  font-weight: 700;
 }
-/* line 48, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 #top-container .topBlurb {
   left: 50%;
   top: 50%;
 }
-/* line 52, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 #top-container .topBlurb p {
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 300;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 .middle-container {
   width: 100%;
 }
-/* line 61, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .middle-container img, .middle-container h2, .middle-container p {
   position: absolute;
 }
-/* line 67, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .middle-container .humanCost h2 {
   top: 10%;
   left: 14%;
   text-align: center;
+  font-weight: 700;
 }
-/* line 73, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 .middle-container .humanCost p {
   text-align: center;
   color: white;
+  font-weight: 300;
 }
-/* line 78, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
+.middle-container .humanCost .countingNumbers {
+  margin: 5% 0px;
+  display: block;
+}
+/* line 108, ../sass/screen.scss */
 .middle-container .humanCost .left {
   top: 34%;
   left: 3%;
 }
-/* line 82, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 .middle-container .humanCost .right {
   top: 32%;
   left: 71%;
 }
-/* line 88, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 .middle-container .fiscalImpact {
   top: 10%;
   left: 14%;
   text-align: center;
+  font-weight: 700;
 }
-/* line 93, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .middle-container .belowHeader {
-  top: 25%;
+  top: 27%;
   left: 21%;
   text-align: center;
   color: white;
+  font-weight: 300;
+  line-height: 1.3;
 }
-/* line 99, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 .middle-container .citations {
-  top: 77%;
+  top: 75%;
   left: 8%;
   text-align: center;
   color: white;
+  font-weight: 300;
+  line-height: 1.3;
 }
-/* line 106, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
+.middle-container .big {
+  display: block;
+}
+/* line 145, ../sass/screen.scss */
 .middle-container .solution {
   text-align: center;
   top: 9%;
   left: 14%;
+  font-weight: 700;
 }
-/* line 111, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 .middle-container .solutionLeft {
   text-align: center;
-  top: 38%;
-  left: 20%;
+  top: 37%;
+  left: 19.5%;
+  font-weight: 300;
+  line-height: 1.2;
 }
-/* line 116, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 .middle-container .solutionRight {
   text-align: center;
-  top: 65%;
+  top: 61%;
   left: 60%;
   color: white;
+  font-weight: 300;
+  line-height: 1.5;
 }
-/* line 123, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 .middle-container .dozer {
   top: 76%;
-  left: 24%;
+  left: -26%;
 }
-/* line 127, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 .middle-container .sign {
   top: 54%;
   left: 25%;
 }
-/* line 131, ../sass/screen.scss */
+/* line 175, ../sass/screen.scss */
 .middle-container .cone {
   top: 75.7%;
   left: 8%;
 }
-/* line 135, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 .middle-container .crane {
   top: 73%;
-  left: 65%;
+  left: 102%;
 }
-/* line 139, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 .middle-container .gearLarge {
   top: 32%;
   left: 85%;
 }
-/* line 143, ../sass/screen.scss */
+/* line 187, ../sass/screen.scss */
 .middle-container .gearMedium {
   top: 57%;
   left: 93%;
 }
-/* line 147, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 .middle-container .gearSmall {
   top: 10%;
   left: 90%;
 }
 
-/* line 153, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 #bottom-container {
   width: 100%;
 }
 
-/* line 157, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .pane {
   overflow: hidden;
   position: relative;

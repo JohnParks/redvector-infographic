@@ -5,16 +5,37 @@
 
 @import "compass/reset";
 
+@font-face {
+    font-family: museo;
+    src: url('../../assets/fonts/museo.otf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: museo;
+    src: url('../../assets/fonts/museo-300.otf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: museo;
+    src: url('../../assets/fonts/museo-500.otf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: museo;
+    src: url('../../assets/fonts/museo-700.otf');
+    font-weight: 700;
+}
+
 html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: museo;
 }
 
 #container {
     /*max-width: 1360px;*/
-    max-width: 960px;
-    width: 100%;
+    width: 960px;
     background-image: url("../../assets/blank-background.png");
     background-size: 100%;
     margin: 0 auto;
@@ -28,7 +49,7 @@ html, body {
 }
 .yellow {
     color: #f7ca4f;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 #top-container {
@@ -43,6 +64,7 @@ html, body {
 
         h1 {
             color: #b22126;
+            font-weight: 700;
         }
     }
     .topBlurb {
@@ -50,7 +72,8 @@ html, body {
         top: 50%;
 
         p {
-            line-height: 1.5;
+            line-height: 1.6;
+            font-weight: 300;
         }
     }
 }
@@ -68,11 +91,18 @@ html, body {
             top: 10%;
             left: 14%;
             text-align: center;
+            font-weight: 700;
         }
 
         p {
             text-align: center;
             color: white;
+            font-weight: 300;
+        }
+
+        .countingNumbers {
+            margin: 5% 0px;
+            display: block;
         }
 
         .left {
@@ -89,40 +119,54 @@ html, body {
         top: 10%;
         left: 14%;
         text-align: center;
+        font-weight: 700;
     }
     .belowHeader {
-        top: 25%;
+        top: 27%;
         left: 21%;
         text-align: center;
         color: white;
+        font-weight: 300;
+        line-height: 1.3;
     }
     .citations {
-        top: 77%;
+        top: 75%;
         left: 8%;
         text-align: center;
         color: white;
+        font-weight: 300;
+        line-height: 1.3;
+    }
+
+    .big {
+        display: block;
     }
 
     .solution {
         text-align: center;
         top: 9%;
         left: 14%;
+        font-weight: 700;
     }
     .solutionLeft {
         text-align: center;
-        top: 38%;
-        left: 20%;
+        top: 37%;
+        left: 19.5%;
+        font-weight: 300;
+        line-height: 1.2;
     }
     .solutionRight {
         text-align: center;
-        top: 65%;
+        top: 61%;
         left: 60%;
         color: white;
+        font-weight: 300;
+        line-height: 1.5;
     }
 
     .dozer {
         top: 76%;
-        left: 24%;
+        left: -26%;
     }
     .sign {
         top: 54%;
@@ -134,7 +178,7 @@ html, body {
     }
     .crane {
         top: 73%;
-        left: 65%;
+        left: 102%;
     }
     .gearLarge {
         top: 32%;

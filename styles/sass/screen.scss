@@ -137,6 +137,11 @@ html, body {
         font-weight: 300;
         line-height: 1.3;
     }
+    #drawn-arrow {
+        position: absolute;
+        top: 45%;
+        left: 6.5%;
+    }
 
     .big {
         display: block;
@@ -191,6 +196,14 @@ html, body {
     .gearSmall {
         top: 10%;
         left: 90%;
+    }
+    .leftHand {
+        top: 83%;
+        left: 5.5%;
+    }
+    .rightHand {
+        top: 84%;
+        left: 23%;
     }
 }
 

@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+    <script src="assets/js/anime.min.js"></script>
 
     <link href="styles/stylesheets/screen.css" media="screen, projection" rel="stylesheet" text="text/css" />
     <!--[if IE]>
@@ -63,7 +64,10 @@
                 citations: 626/1920,
                 solution: 1415/1920,
                 solutionLeft: 589/1920,
-                solutionRight: 578/1920
+                solutionRight: 578/1920,
+                yellowArrow: 336/1920,
+                leftHand: 246/1920,
+                rightHand: 337/1920
             }
 
             // let's make a function to handle all this resizing business
@@ -126,7 +130,7 @@
                 <h2 class="humanHeader blue-header">THE HUMAN COST</h2>
                 <p class="left">
                     Approximately<br />
-                    <span class="countingNumbers">4,836</span>
+                    <span class="countingNumbers" id="numbersLeft" data-number="4836">0</span>
                     workers perished on<br />
                     worksites in 2015,<br />
                     capping off two<br />
@@ -136,7 +140,7 @@
                 </p>
                 <p class="right">
                     Roughly<br />
-                    <span class="countingNumbers">187,000</span>
+                    <span class="countingNumbers" id="numbersRight" data-number="187000">0</span>
                     more sustained serious<br />
                     injuries over the same span,<br />
                     falling victim to common<br />
@@ -153,6 +157,41 @@
             <script>
                 // grab current infographic width, for scaling of duration and offsets
                 var containerWidth =  $('#container').width();
+
+                incrementCount = function ( element, rate, interval ) {
+                    var numHolder = $(element);
+                    var number = parseInt( numHolder.html() );
+                    var target = parseInt( numHolder.data("number") );
+
+                    if ( number < target ) {
+                        number+=rate;
+                        numHolder.html(number);
+                    } else {
+                        clearInterval(interval);
+                    }
+                }
+
+                // attach a scene who's "progress" event will be used to increment the counting numbers
+                var leftCount = new ScrollMagic.Scene({
+                    triggerElement: "#human-cost",
+                    duration: 800/1920*containerWidth
+                })
+                    .addTo(controller);
+                // register callback for "progress" event
+                leftCount.on("progress", function(event) {
+                    var humanCostLeftCounter = setInterval( incrementCount, 50, "#numbersLeft", 6, humanCostLeftCounter );
+                });
+
+                var rightCount = new ScrollMagic.Scene({
+                    triggerElement: "#human-cost",
+                    duration: 800/1920*containerWidth
+                })
+                    .addTo(controller);
+                // register callback for "progress" event
+                rightCount.on("progress", function(event) {
+                    var humanCostRightCounter = setInterval( incrementCount, 50, "#numbersRight", 250, humanCostRightCounter );
+                });
+
                 // build out a scene to animate the bulldozer
                 var dozerScene = new ScrollMagic.Scene({
                     triggerElement: "#human-cost",
@@ -191,6 +230,30 @@
             <img src="assets/gear-medium.png" class="gearMedium" />
             <img src="assets/gear-large.png" class="gearLarge" />
             <img src="assets/gear-small.png" class="gearSmall" />
+            <div id="drawn-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 331.65 315.92" class="yellowArrow">
+                    <defs><style>.arrowPoints{fill:#fdc00f;}</style></defs>
+                    <g id="arrowLayer" fill-role="evenodd" stroke-width="1" data-name="Layer 1">
+                        <path class="arrowPoints" d="M331.65,0,304.2,60,294,48.23l-63,56.26-53.48,91.23-90.82,6.76L27.92,314.86,0,315.92,71.58,179.49l91.58-6.8L212.81,88.5l65.48-58.45-10-11.57Z">
+                            <animate attributeType="XML" attributeName="x" from="-100" to="120" dur="10s" repeatCount="indefinite"/>
+                        </path>
+                    </g>
+                </svg>
+            </div>
+
+            <script>
+                // let's try initializing an animation using animejs
+                // var arrowDrawing = anime({
+                //     targets: '#drawn-arrow #arrowLayer path',
+                //     strokeDashoffset: [anime.setDashoffset, 0],
+                //     easing: 'easeInOutSine',
+                //     duration: 1500,
+                //     delay: function(el, i) { return i * 250 },
+                //     direction: 'alternate',
+                //     loop: true
+                // });
+            </script>
+            
             <script>
                 // grab current infographic width, for scaling of duration and offsets
                 var containerWidth =  $('#container').width();
@@ -202,10 +265,6 @@
                 })
                     .setTween("#fiscal-impact .gearMedium", { rotation: 750 })
                     .addTo(controller);
-                function eventCallback (event) {
-                    console.log("Event fired! (" + event.type + ")");
-                }
-                smallGearScene.on("progress", eventCallback);
                 
                 var largeGearScene = new ScrollMagic.Scene({
                     triggerElement: "#fiscal-impact",
@@ -245,6 +304,8 @@
                     over the first three years of use.
                 </p>
             </div>
+            <img src="assets/left-hand.png" class="leftHand" />
+            <img src="assets/right-hand.png" class="rightHand" />
         </div>
         <div id="bottom-container" class="pane">
         </div>

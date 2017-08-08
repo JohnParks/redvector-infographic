@@ -34,8 +34,8 @@ html, body {
 }
 
 #container {
-    /*max-width: 1360px;*/
-    width: 960px;
+    max-width: 1360px;
+    width: 100%;
     background-image: url("../../assets/blank-background.png");
     background-size: 100%;
     margin: 0 auto;
@@ -200,7 +200,7 @@ html, body {
     .leftHand {
         top: 83%;
         left: 5.5%;
-        
+        transform: rotate(45deg);
     }
     .rightHand {
         top: 84%;

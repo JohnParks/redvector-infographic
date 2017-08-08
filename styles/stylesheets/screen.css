@@ -97,8 +97,8 @@ html, body {
 
 /* line 36, ../sass/screen.scss */
 #container {
-  /*max-width: 1360px;*/
-  width: 960px;
+  max-width: 1360px;
+  width: 100%;
   background-image: url("../../assets/blank-background.png");
   background-size: 100%;
   margin: 0 auto;
@@ -283,6 +283,7 @@ html, body {
 .middle-container .leftHand {
   top: 83%;
   left: 5.5%;
+  transform: rotate(45deg);
 }
 /* line 205, ../sass/screen.scss */
 .middle-container .rightHand {

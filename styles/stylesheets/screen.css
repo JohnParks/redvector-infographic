@@ -284,18 +284,31 @@ html, body {
   top: 83%;
   left: 5.5%;
 }
-/* line 204, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 .middle-container .rightHand {
   top: 84%;
   left: 23%;
 }
 
-/* line 210, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 #bottom-container {
   width: 100%;
 }
-
 /* line 214, ../sass/screen.scss */
+#bottom-container .footerLinks {
+  position: absolute;
+  top: 67%;
+  left: 6%;
+  text-align: center;
+  line-height: 1.7;
+  color: #afafaf;
+}
+/* line 222, ../sass/screen.scss */
+#bottom-container .footerLinks a, #bottom-container .footerLinks a:visited {
+  color: #afafaf;
+}
+
+/* line 228, ../sass/screen.scss */
 .pane {
   overflow: hidden;
   position: relative;

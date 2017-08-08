@@ -200,6 +200,7 @@ html, body {
     .leftHand {
         top: 83%;
         left: 5.5%;
+        
     }
     .rightHand {
         top: 84%;
@@ -209,6 +210,19 @@ html, body {
 
 #bottom-container {
     width: 100%;
+
+    .footerLinks {
+        position: absolute;
+        top: 67%;
+        left: 6%;
+        text-align: center;
+        line-height: 1.7;
+        color: #afafaf;
+
+        a, a:visited {
+            color: #afafaf;
+        }
+    }
 }
 
 .pane {

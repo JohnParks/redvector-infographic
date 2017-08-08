@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
     <script src="assets/js/anime.min.js"></script>
+    <script src="assets/js/jquery-qwerty.min.js"></script>
 
     <link href="styles/stylesheets/screen.css" media="screen, projection" rel="stylesheet" text="text/css" />
     <!--[if IE]>
@@ -67,7 +68,8 @@
                 solutionRight: 578/1920,
                 yellowArrow: 336/1920,
                 leftHand: 246/1920,
-                rightHand: 337/1920
+                rightHand: 337/1920,
+                footerLinks: 1752/1920
             }
 
             // let's make a function to handle all this resizing business
@@ -101,6 +103,7 @@
             resizeFont('#the-solution', '.solutionLeft', 0.019);
             resizeFont('#the-solution', '.solutionRight', 0.017);
             resizeFont('#the-solution', '.big', 0.058);
+            resizeFont('#bottom-container', '.footerLinks', 0.01);
         });
     </script>
 </head>
@@ -232,31 +235,50 @@
             <img src="assets/gear-small.png" class="gearSmall" />
             <div id="drawn-arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 331.65 315.92" class="yellowArrow">
-                    <defs><style>.arrowPoints{fill:#fdc00f;}</style></defs>
-                    <g id="arrowLayer" fill-role="evenodd" stroke-width="1" data-name="Layer 1">
-                        <path class="arrowPoints" d="M331.65,0,304.2,60,294,48.23l-63,56.26-53.48,91.23-90.82,6.76L27.92,314.86,0,315.92,71.58,179.49l91.58-6.8L212.81,88.5l65.48-58.45-10-11.57Z">
-                            <animate attributeType="XML" attributeName="x" from="-100" to="120" dur="10s" repeatCount="indefinite"/>
-                        </path>
-                    </g>
+                    <defs>
+                        <linearGradient id="left-to-right">
+                            <stop id="stopcolor" offset="0" stop-color="#fdc00f"></stop>
+                            <stop offset="0" stop-color="#2a66b0"></stop>
+                        </linearGradient>
+                    </defs>
+                        
+                    <path class="arrowPoints" fill="url(#left-to-right)" stroke-width="1" opacity="1"  d="M331.65,0,304.2,60,294,48.23l-63,56.26-53.48,91.23-90.82,6.76L27.92,314.86,0,315.92,71.58,179.49l91.58-6.8L212.81,88.5l65.48-58.45-10-11.57Z"/>
+
                 </svg>
             </div>
-
-            <script>
-                // let's try initializing an animation using animejs
-                // var arrowDrawing = anime({
-                //     targets: '#drawn-arrow #arrowLayer path',
-                //     strokeDashoffset: [anime.setDashoffset, 0],
-                //     easing: 'easeInOutSine',
-                //     duration: 1500,
-                //     delay: function(el, i) { return i * 250 },
-                //     direction: 'alternate',
-                //     loop: true
-                // });
-            </script>
             
             <script>
+                var fill = 0;
+                function animateIt(){
+                    let el = document.getElementById('stopcolor');
+                    console.log(fill);
+                    console.log(fill <= 1);
+                    if(fill <= 1){
+                        fill += .002;
+                        el.setAttribute("offset", fill);
+                        setTimeout(animateIt, 3);
+                    }
+                }
+                function startAnimateIt(){
+                    fill = 0;
+                    document.getElementById('stopcolor').setAttribute("offset", 0);
+                    animateIt();
+                }
+
+
                 // grab current infographic width, for scaling of duration and offsets
                 var containerWidth =  $('#container').width();
+
+                var animatedArrow = new ScrollMagic.Scene({
+                    triggerElement: "#fiscal-impact",
+                    duration: 3000/1920*containerWidth,
+                    offset: -500/1920*containerWidth
+                })
+                    .addTo(controller);
+                // call startAnimateIt() on start of scene
+                animatedArrow.on("enter", function(event) {
+                    startAnimateIt();
+                });
 
                 var smallGearScene = new ScrollMagic.Scene({
                     triggerElement: "#fiscal-impact",
@@ -286,14 +308,24 @@
         <div class="middle-container pane" id="the-solution">
             <div>
                 <h2 class="solution blue-header">THE SOLUTION</h2>
-                <p class="solutionLeft blue-body">
-                    Organizations can avoid paying<br />
-                    steep penalties by implementing<br />
-                    online safety training programs.<br />
-                    These solutions are easy to deploy<br />
-                    and net considerable return on<br />
-                    investment.
-                </p>
+                <p class="solutionLeft blue-body"></p>
+                <script>
+                    var numTimesTyped = 0;
+                    var typeScene = new ScrollMagic.Scene({
+                        triggerElement: "#the-solution",
+                        offset: -450/1920*containerWidth
+                    })
+                        .addTo(controller);
+                    typeScene.on("enter", function(event) {
+                        numTimesTyped++;
+                        if ( numTimesTyped == 2 ) {
+                            $(".solutionLeft").qwerty({
+                                typerString: "Organizations can avoid paying steep penalties by implementing online safety training programs. These solutions are easy to deploy and net considerable return on investment.",
+                                delay: 50
+                            });
+                        }
+                    });
+                </script>
                 <p class="solutionRight">
                     For example, an enterprise that earns<br />
                     $2 million in annual revenue and<br />
@@ -306,8 +338,36 @@
             </div>
             <img src="assets/left-hand.png" class="leftHand" />
             <img src="assets/right-hand.png" class="rightHand" />
+
+            <script>
+                // Let's just tie infinitely looping animation to "wiggle" the hands
+                var infiniteLeftHand = anime({
+                    targets: ".leftHand",
+                    direction: "alternate",
+                    loop: true,
+                    rotate: function() { return anime.random(-15, 15); },
+                    translateX: function() { return anime.random(-1, 1) + "em"; },
+                    translateY: "0.5em",
+                    easing: "easeInOutSine"
+                });
+
+                var infiniteRightHand = anime({
+                    targets: ".rightHand",
+                    direction: "alternate",
+                    loop: true,
+                    rotate: -10,
+                    translateX: "1em",
+                    translateY: "0.5em",
+                    easing: "easeInOutSine"
+                });
+            </script>
         </div>
         <div id="bottom-container" class="pane">
+            <div>
+                <p class="footerLinks">
+                    Sources: <a href="https://www.bls.gov/news.release/pdf/cfoi.pdf">https://www.bls.gov/news.release/pdf/cfoi.pdf</a> | <a href="https://www.bls.gov/iif/oshwc/osh/os/ostb4745.pdf">https://www.bls.gov/iif/oshwc/osh/os/ostb4745.pdf</a> | <a href="http://www.safetyandhealthmagazine.com/articles/14927-2016-oshas-top-10-most-cited-violations">http://www.safetyandhealthmagazine.com/arti<br />cles/14927-2016-oshas-top-10-most-cited-violations</a> | <a href="https://www.osha.gov/oshstats/commonstats.html">https://www.osha.gov/oshstats/commonstats.html</a> | <a href="https://www.osha.gov/penalties">https://www.osha.gov/penalties</a> | <a href="https://www.osha.gov/pls/oshaweb/owadisp.show_document?p_table=NEWS_RELEASES&p_id=32736">https://www.os<br />ha.gov/pls/oshaweb/owadisp.show_document?p_table=NEWS_RELEASES&p_id=32736</a> | <a href="https://www.redvector.com/training-roi">https://www.redvector.com/training-roi</a>
+                </p>
+            </div>
         </div>
     </div>
 </body>

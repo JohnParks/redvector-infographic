@@ -223,6 +223,18 @@ html, body {
             color: #afafaf;
         }
     }
+    .footerLine {
+        position: absolute;
+        top: 5%;
+        left: 17%;
+        text-align: center;
+        line-height: 1.7;
+        color: #afafaf;
+        
+        a, a:visited {
+            color: #afafaf;
+        }
+    }
 }
 
 .pane {

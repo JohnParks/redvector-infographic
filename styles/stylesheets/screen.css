@@ -308,8 +308,21 @@ html, body {
 #bottom-container .footerLinks a, #bottom-container .footerLinks a:visited {
   color: #afafaf;
 }
+/* line 226, ../sass/screen.scss */
+#bottom-container .footerLine {
+  position: absolute;
+  top: 5%;
+  left: 17%;
+  text-align: center;
+  line-height: 1.7;
+  color: #afafaf;
+}
+/* line 234, ../sass/screen.scss */
+#bottom-container .footerLine a, #bottom-container .footerLine a:visited {
+  color: #afafaf;
+}
 
-/* line 228, ../sass/screen.scss */
+/* line 240, ../sass/screen.scss */
 .pane {
   overflow: hidden;
   position: relative;

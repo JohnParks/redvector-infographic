@@ -315,11 +315,11 @@ html, body {
   left: 17%;
   text-align: center;
   line-height: 1.7;
-  color: #afafaf;
 }
-/* line 234, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 #bottom-container .footerLine a, #bottom-container .footerLine a:visited {
-  color: #afafaf;
+  color: #b22126;
+  font-weight: bold;
 }
 
 /* line 240, ../sass/screen.scss */
